@@ -1,0 +1,49 @@
+{
+  "rpc-reply": {
+    "@message-id": "urn:uuid:d069b108-5dfa-426f-bd0e-f2a9a2c56c77",
+    "data": {
+      "keystore": {
+        "asymmetric-keys": {
+          "asymmetric-key": {
+            "name": "genkey",
+            "algorithm": "rsa2048",
+            "public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsKs9JB7+4mXV0qmEmmE8r3bU2sifGKrtwYai1kLqbFEVp5EicfF1LFLcEjr04hIjTwi/FDkGmli9zizsiqpXQj/bmX0k3f+Oztu7Ozk5tdGyrC095k5Ntfm8y7JT4Fp7caxU2Sc6RtByI1H9FjWGcCBNx2PG2QGHXQ4t/JEttKEawY3VmwtF1MZsglQ4fKLnHoDi4R49dsPWuYgUhCqLMdE+t5miFa/DNCFOx52kNbKffzgSZsoCOa/hBVoe2qNu/Vvb/6R+ZjEh2Z2CBbYVqc6TtCTKJLElyJLTQRZHwFY2a//jbzY+7avF3epSCx61gXXqmN5I0x+wYjKDYy2tDQIDAQAB"
+          }
+        }
+      },
+      "netconf-server": {
+        "listen": {
+          "endpoint": {
+            "name": "default-ssh",
+            "ssh": {
+              "tcp-server-parameters": {
+                "local-address": "0.0.0.0",
+                "keepalives": {
+                  "idle-time": "1",
+                  "max-probes": "10",
+                  "probe-interval": "5"
+                }
+              },
+              "ssh-server-parameters": {
+                "server-identity": {
+                  "host-key": {
+                    "name": "default-key",
+                    "public-key": {
+                      "keystore-reference": "genkey"
+                    }
+                  }
+                },
+                "client-authentication": {
+                  "supported-authentication-methods": {
+                    "publickey": null,
+                    "passsword": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
